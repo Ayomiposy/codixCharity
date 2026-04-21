@@ -1,352 +1,300 @@
-# Codix Charity Foundation — Web Application
+# Codix Charity Foundation (CCF) — Website
 
-A modern, responsive web application for the **Codix Charity Foundation** — the CSR arm of Codix Pharma Ltd. Built with React, Vite, and Tailwind CSS.
+A multi-page React + JavaScript marketing website for the **Codix Charity Foundation**, featuring program pages, a multi-step scholarship application, mentoring info, and a contact form.
 
-![React](https://img.shields.io/badge/React-18-blue) ![Vite](https://img.shields.io/badge/Vite-5-purple) ![Tailwind](https://img.shields.io/badge/Tailwind-3-teal)
+> Built with **Vite + React 18 + JavaScript (JSX) + Tailwind CSS**.
 
 ---
 
 ## Table of Contents
 
-- [Overview](#overview)
-- [Tech Stack](#tech-stack)
-- [Prerequisites](#prerequisites)
-- [Getting Started](#getting-started)
-- [Project Structure](#project-structure)
-- [Available Scripts](#available-scripts)
-- [Pages & Routing](#pages--routing)
-- [Design System](#design-system)
-- [Customization](#customization)
-- [Deployment](#deployment)
-- [Troubleshooting](#troubleshooting)
-
----
-
-## Overview
-
-This application serves as the digital presence for Codix Charity Foundation, showcasing their work in:
-
-- **Health** — Community healthcare interventions
-- **Education** — Codix Academy training programme
-- **Scholarships** — Targeted educational funding
-- **Mentoring** — Professional development pairing
-- **Philanthropy** — Broader charitable initiatives
+1. [Tech Stack](#tech-stack)
+2. [Project Structure](#project-structure)
+3. [Prerequisites](#prerequisites)
+4. [Pulling the Project Into VS Code](#pulling-the-project-into-vs-code)
+5. [Installation & Running Locally](#installation--running-locally)
+6. [Available Scripts](#available-scripts)
+7. [Recommended VS Code Extensions](#recommended-vs-code-extensions)
+8. [Path Aliases](#path-aliases)
+9. [Pages & Routes](#pages--routes)
+10. [Design System](#design-system)
+11. [Building for Production](#building-for-production)
+12. [Deployment](#deployment)
+13. [Troubleshooting](#troubleshooting)
 
 ---
 
 ## Tech Stack
 
-| Technology | Purpose |
-|---|---|
-| [React 18](https://react.dev) | UI framework |
-| [Vite 5](https://vitejs.dev) | Build tool & dev server |
-| [Tailwind CSS 3](https://tailwindcss.com) | Utility-first CSS |
-| [React Router 6](https://reactrouter.com) | Client-side routing |
-| [Lucide React](https://lucide.dev) | Icon library |
-| [Radix UI](https://radix-ui.com) | Accessible UI primitives (toast, tooltip) |
-| [Sonner](https://sonner.emilkowal.dev) | Toast notifications |
-| [TanStack React Query](https://tanstack.com/query) | Server state management |
-| [Vitest](https://vitest.dev) | Unit testing |
-
----
-
-## Prerequisites
-
-Before you begin, ensure you have the following installed:
-
-- **Node.js** — v18 or higher ([download](https://nodejs.org))
-- **npm** — v9+ (comes with Node.js) or use **bun**, **yarn**, or **pnpm**
-
-Verify your installation:
-
-```bash
-node --version   # Should output v18.x or higher
-npm --version    # Should output 9.x or higher
-```
-
----
-
-## Getting Started
-
-### 1. Clone the repository
-
-```bash
-git clone <your-repo-url>
-cd codix-charity-foundation
-```
-
-### 2. Install dependencies
-
-```bash
-npm install
-```
-
-Or with other package managers:
-
-```bash
-# Using bun (faster)
-bun install
-
-# Using yarn
-yarn install
-
-# Using pnpm
-pnpm install
-```
-
-### 3. Start the development server
-
-```bash
-npm run dev
-```
-
-The app will be available at **http://localhost:8080**.
-
-### 4. Open in your browser
-
-Navigate to `http://localhost:8080` — you should see the Codix Charity Foundation homepage with the hero section, pillars, impact stats, and testimonials.
+| Tool | Purpose |
+|------|---------|
+| **[Vite 5](https://vitejs.dev/)** | Lightning-fast dev server & bundler |
+| **[React 18](https://react.dev/)** | UI library |
+| **JavaScript (JSX)** | Language (no TypeScript) |
+| **[React Router DOM 6](https://reactrouter.com/)** | Client-side routing |
+| **[Tailwind CSS 3](https://tailwindcss.com/)** | Utility-first styling |
+| **[tailwindcss-animate](https://github.com/jamiebuilds/tailwindcss-animate)** | Animation utilities |
+| **[Radix UI](https://www.radix-ui.com/)** | Accessible primitives (tooltip, toast) |
+| **[lucide-react](https://lucide.dev/)** | Icon library |
+| **[@tanstack/react-query](https://tanstack.com/query)** | Async state management |
+| **[sonner](https://sonner.emilkowal.ski/)** | Toast notifications |
+| **[Vitest](https://vitest.dev/)** | Unit testing |
+| **[ESLint](https://eslint.org/)** | Code linting |
 
 ---
 
 ## Project Structure
 
 ```
-codix-charity-foundation/
-├── public/                     # Static assets (favicon, robots.txt)
-│   ├── placeholder.svg
-│   └── robots.txt
+.
+├── public/                 # Static assets (favicon, robots.txt)
 ├── src/
-│   ├── assets/                 # Images (hero photos, logo, etc.)
-│   │   ├── about-team.jpg
-│   │   ├── accomplishments.jpg
-│   │   ├── hero-health.jpg
-│   │   ├── hero-lab.jpg
-│   │   ├── hero-training.jpg
-│   │   └── logo.png
-│   ├── components/             # Reusable UI components
-│   │   ├── Footer.jsx          # Site-wide footer with navigation & newsletter
-│   │   ├── Navbar.jsx          # Responsive navbar with mobile hamburger menu
-│   │   ├── NavLink.jsx         # Active-state-aware navigation link
-│   │   ├── SectionTag.jsx      # Reusable section label/tag component
-│   │   └── ui/                 # Low-level UI primitives
-│   │       ├── sonner.jsx      # Sonner toast wrapper
-│   │       ├── toast.jsx       # Radix toast components
-│   │       ├── toaster.jsx     # Toast renderer
-│   │       └── tooltip.jsx     # Radix tooltip components
-│   ├── hooks/                  # Custom React hooks
-│   │   ├── use-mobile.jsx      # Mobile breakpoint detection
-│   │   └── use-toast.js        # Toast state management
-│   ├── lib/
-│   │   └── utils.js            # Utility functions (cn class merger)
-│   ├── pages/                  # Route-level page components
-│   │   ├── Index.jsx           # Home page
-│   │   ├── About.jsx           # About CCF page
-│   │   ├── OurWork.jsx         # Our Work & Initiatives
-│   │   ├── CodixAcademy.jsx    # Codix Academy programme
-│   │   ├── Scholarship.jsx     # Scholarship programme
-│   │   ├── Mentoring.jsx       # Mentoring programme
-│   │   ├── Contact.jsx         # Contact form
-│   │   └── NotFound.jsx        # 404 page
-│   ├── test/                   # Test files
-│   │   ├── setup.js            # Test environment setup
-│   │   └── example.test.js     # Example test
-│   ├── App.jsx                 # Root application component with routing
-│   ├── index.css               # Global styles, CSS variables, Tailwind directives
-│   └── main.jsx                # Application entry point
-├── index.html                  # HTML template
-├── jsconfig.json               # JS path aliases configuration
-├── package.json                # Dependencies and scripts
-├── postcss.config.js           # PostCSS configuration
-├── tailwind.config.js          # Tailwind CSS configuration
-├── vite.config.js              # Vite build configuration
-├── vitest.config.js            # Vitest test configuration
-└── README.md                   # This file
+│   ├── assets/             # Images imported into components
+│   ├── components/
+│   │   ├── ui/             # Reusable UI primitives (toast, tooltip, sonner)
+│   │   ├── Footer.jsx
+│   │   ├── Navbar.jsx
+│   │   ├── NavLink.jsx
+│   │   └── SectionTag.jsx
+│   ├── hooks/              # Custom React hooks
+│   ├── lib/                # Utilities (cn helper)
+│   ├── pages/              # Route components
+│   │   ├── Index.jsx
+│   │   ├── About.jsx
+│   │   ├── OurWork.jsx
+│   │   ├── CodixAcademy.jsx
+│   │   ├── Scholarship.jsx     # 5-step application form
+│   │   ├── Mentoring.jsx
+│   │   ├── Contact.jsx
+│   │   └── NotFound.jsx
+│   ├── test/               # Vitest setup + examples
+│   ├── App.jsx             # Root component & routes
+│   ├── main.jsx            # React entry point
+│   └── index.css           # Tailwind layers + design tokens
+├── index.html
+├── jsconfig.json           # Path aliases for JS
+├── tailwind.config.js
+├── vite.config.js
+├── vitest.config.js
+└── package.json
 ```
+
+---
+
+## Prerequisites
+
+Install these before starting:
+
+| Requirement | Version | Download |
+|-------------|---------|----------|
+| **Node.js** | ≥ 18.x (LTS recommended) | https://nodejs.org/ |
+| **npm** | ≥ 9.x (bundled with Node) | — |
+| **Git** | latest | https://git-scm.com/ |
+| **VS Code** | latest | https://code.visualstudio.com/ |
+
+Verify installations:
+
+```bash
+node -v
+npm -v
+git --version
+```
+
+---
+
+## Pulling the Project Into VS Code
+
+### Option A — Clone via terminal
+
+```bash
+# 1. Clone the repository
+git clone <YOUR_REPO_URL>
+
+# 2. Navigate into the project
+cd <project-folder>
+
+# 3. Open in VS Code
+code .
+```
+
+### Option B — Clone via VS Code UI
+
+1. Open VS Code.
+2. Press **`Ctrl+Shift+P`** (or **`Cmd+Shift+P`** on Mac) → type **"Git: Clone"**.
+3. Paste your repo URL.
+4. Choose a folder on your machine.
+5. Click **"Open"** when prompted.
+
+### Option C — Download ZIP
+
+1. Download the ZIP from your repo / Lovable export.
+2. Extract it.
+3. Open VS Code → **File → Open Folder…** → select the extracted folder.
+
+---
+
+## Installation & Running Locally
+
+Inside the project root, run:
+
+```bash
+# 1. Install all dependencies
+npm install
+
+# 2. Start the dev server
+npm run dev
+```
+
+The terminal will print a local URL — typically:
+
+```
+➜  Local:   http://localhost:8080/
+```
+
+Open it in your browser. The app supports **hot module replacement** — saved changes appear instantly.
 
 ---
 
 ## Available Scripts
 
-| Command | Description |
-|---|---|
-| `npm run dev` | Start development server on port 8080 |
-| `npm run build` | Build for production (output in `dist/`) |
-| `npm run preview` | Preview production build locally |
-| `npm run test` | Run unit tests with Vitest |
-| `npm run lint` | Lint source files with ESLint |
+| Command | What it does |
+|---------|--------------|
+| `npm run dev` | Start the Vite dev server with HMR |
+| `npm run build` | Build a production bundle into `dist/` |
+| `npm run build:dev` | Build in development mode (unminified) |
+| `npm run preview` | Preview the production build locally |
+| `npm run lint` | Run ESLint over the codebase |
+| `npm run test` | Run all Vitest tests once |
+| `npm run test:watch` | Run Vitest in watch mode |
 
 ---
 
-## Pages & Routing
+## Recommended VS Code Extensions
 
-All routes are defined in `src/App.jsx`:
+Install these for the best DX:
 
-| Path | Page | Description |
-|---|---|---|
-| `/` | Home | Hero, pillars, impact stats, testimonials, CTA |
-| `/about` | About CCF | Foundation story, vision/mission, Board of Trustees |
-| `/our-work` | Our Work | Stats grid, pillars, featured initiatives |
-| `/codix-academy` | Codix Academy | Programme overview, timeline, alumni voices carousel |
-| `/scholarship` | Scholarship | Scholarship programme details |
-| `/mentoring` | Mentoring | Mentoring programme details |
-| `/contact` | Contact | Contact form with submission state |
-| `*` | 404 | Not found page |
+| Extension | Why |
+|-----------|-----|
+| **ES7+ React/Redux/React-Native snippets** (`dsznajder.es7-react-js-snippets`) | JSX snippets |
+| **Tailwind CSS IntelliSense** (`bradlc.vscode-tailwindcss`) | Autocomplete & class previews |
+| **Prettier** (`esbenp.prettier-vscode`) | Code formatting |
+| **ESLint** (`dbaeumer.vscode-eslint`) | Inline lint warnings |
+| **Path Intellisense** (`christian-kohler.path-intellisense`) | Autocomplete file imports |
+| **Auto Rename Tag** (`formulahendry.auto-rename-tag`) | Sync JSX tag renames |
+| **GitLens** (`eamodio.gitlens`) | Git insights |
+
+Install all from the VS Code Extensions tab (`Ctrl+Shift+X`).
+
+---
+
+## Path Aliases
+
+The project uses the `@` alias for the `src/` folder:
+
+```js
+import Navbar from "@/components/Navbar";
+import logo from "@/assets/logo.png";
+```
+
+This is configured in:
+- `vite.config.js` — for the bundler
+- `jsconfig.json` — for VS Code IntelliSense
+
+---
+
+## Pages & Routes
+
+| Route | Component | Description |
+|-------|-----------|-------------|
+| `/` | `Index.jsx` | Home — hero, pillars, impact, testimonials |
+| `/about` | `About.jsx` | Mission, vision, board of trustees |
+| `/our-work` | `OurWork.jsx` | Program initiatives |
+| `/codix-academy` | `CodixAcademy.jsx` | Academy program details + cohort voice |
+| `/scholarship` | `Scholarship.jsx` | **5-step application form** with progress indicator |
+| `/mentoring` | `Mentoring.jsx` | Mentorship programme overview |
+| `/contact` | `Contact.jsx` | Contact details + message form |
+| `*` | `NotFound.jsx` | 404 fallback |
 
 ---
 
 ## Design System
 
-### Color Palette
+All design tokens live in **`src/index.css`** as CSS variables (HSL format) and are exposed to Tailwind via **`tailwind.config.js`**.
 
-All colors are defined as CSS custom properties in `src/index.css` and mapped to Tailwind classes in `tailwind.config.js`:
+### Brand Tokens
 
-| Token | HSL Value | Usage |
-|---|---|---|
-| `--primary` | `145 63% 32%` | Brand green — buttons, accents, links |
-| `--navy` | `220 40% 13%` | Dark sections, footer background |
-| `--accent` | `220 60% 45%` | Blue accent highlights |
-| `--secondary` | `210 20% 96%` | Light gray section backgrounds |
-| `--background` | `0 0% 100%` | Page background |
-| `--foreground` | `220 20% 10%` | Primary text color |
-| `--muted-foreground` | `220 10% 46%` | Secondary/body text |
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--primary` | Brand green | CTAs, accents, links |
+| `--navy` | Deep navy | Footer background |
+| `--background` / `--foreground` | White / near-black | Surfaces & text |
+| `--muted` / `--muted-foreground` | Soft greys | Secondary text |
 
 ### Typography
 
-| Font | Usage | Tailwind Class |
-|---|---|---|
-| Playfair Display | Headings (h1–h6) | `font-heading` |
-| Inter | Body text, UI elements | `font-body` |
+- **Headings:** `Playfair Display` (serif) — `font-heading`
+- **Body:** `Inter` (sans-serif) — `font-body` (default)
 
-Fonts are loaded via Google Fonts in `src/index.css`.
-
-### Using Design Tokens
-
-Always use semantic Tailwind classes rather than raw colors:
-
-```jsx
-// ✅ Correct — uses design tokens
-<div className="bg-primary text-primary-foreground">...</div>
-<p className="text-muted-foreground">...</p>
-
-// ❌ Avoid — hardcoded colors
-<div className="bg-green-700 text-white">...</div>
-```
+⚠️ **Always use semantic tokens** (`bg-primary`, `text-foreground`) — never hardcoded colors like `bg-green-500`.
 
 ---
 
-## Customization
-
-### Changing Colors
-
-1. Open `src/index.css`
-2. Modify the HSL values in the `:root` block
-3. Changes apply globally via Tailwind classes
-
-### Adding a New Page
-
-1. Create a new file in `src/pages/` (e.g., `Events.jsx`):
-
-```jsx
-const Events = () => (
-  <div>
-    <section className="container py-16 md:py-24 text-center">
-      <h1 className="text-4xl font-heading font-bold">Events</h1>
-    </section>
-  </div>
-);
-
-export default Events;
-```
-
-2. Add a route in `src/App.jsx`:
-
-```jsx
-import Events from "./pages/Events";
-
-// Inside <Routes>:
-<Route path="/events" element={<Events />} />
-```
-
-3. Add a navigation link in `src/components/Navbar.jsx`:
-
-```jsx
-const navLinks = [
-  // ... existing links
-  { label: "Events", to: "/events" },
-];
-```
-
-### Replacing Images
-
-Replace the files in `src/assets/` with your own images, keeping the same filenames, or update the import paths in the respective page components.
-
----
-
-## Deployment
-
-### Build for Production
+## Building for Production
 
 ```bash
 npm run build
 ```
 
-This creates an optimized `dist/` folder.
-
-### Deploy to Vercel
+Output is written to `dist/`. Preview it locally with:
 
 ```bash
-npx vercel
+npm run preview
 ```
 
-### Deploy to Netlify
+---
 
-```bash
-npx netlify deploy --prod --dir=dist
-```
+## Deployment
 
-### Deploy to GitHub Pages
+The `dist/` folder is a fully static site — deploy it anywhere:
 
-1. Install the plugin: `npm install -D vite-plugin-gh-pages`
-2. Set `base` in `vite.config.js` to your repo name
-3. Run `npm run build` and deploy the `dist/` folder
+| Platform | How |
+|----------|-----|
+| **Vercel** | Connect repo → auto-detects Vite |
+| **Netlify** | Drag-and-drop `dist/` or connect repo |
+| **GitHub Pages** | Push `dist/` to `gh-pages` branch |
+| **Cloudflare Pages** | Connect repo, build cmd `npm run build`, output `dist` |
+| **Lovable** | Click **Publish** in the Lovable editor |
 
-### Deploy to Any Static Host
-
-Upload the contents of the `dist/` folder to any static file hosting service (AWS S3, Firebase Hosting, Cloudflare Pages, etc.).
-
-**Important for SPA routing:** Configure your hosting to redirect all routes to `index.html` so React Router handles navigation. For example:
-
-- **Netlify:** Create a `public/_redirects` file with `/* /index.html 200`
-- **Vercel:** Handled automatically
-- **Nginx:** Add `try_files $uri /index.html;`
+For SPA routing to work on static hosts, configure a fallback to `index.html` (Netlify's `_redirects`, Vercel's defaults already handle it).
 
 ---
 
 ## Troubleshooting
 
-### Common Issues
-
-**Port 8080 is already in use:**
+**Port 8080 already in use**
 ```bash
-# Change the port in vite.config.js or use:
-npm run dev -- --port 3000
+# Kill the process or change the port in vite.config.js
 ```
 
-**Module not found errors:**
+**`npm install` fails with peer-dep errors**
 ```bash
-# Clear node_modules and reinstall
-rm -rf node_modules
-npm install
+npm install --legacy-peer-deps
 ```
 
-**Fonts not loading:**
-Check your internet connection — fonts are loaded from Google Fonts CDN. For offline usage, download the fonts and serve them locally.
+**Tailwind classes not applying**
+- Ensure the file extension is included in `tailwind.config.js` `content` glob.
+- Restart the dev server after editing `tailwind.config.js`.
 
-**Images not displaying:**
-Ensure image files exist in `src/assets/`. Vite processes these at build time via ES module imports.
+**Path alias `@/` not resolving in VS Code**
+- Reload the window: `Ctrl+Shift+P` → **"Developer: Reload Window"**.
+- Confirm `jsconfig.json` exists at the project root.
+
+**Blank page after build**
+- Check the browser console for asset-path errors.
+- If hosting under a sub-path, set `base: "/sub-path/"` in `vite.config.js`.
 
 ---
 
 ## License
 
-This project is proprietary to Codix Charity Foundation. All rights reserved.
+© Codix Charity Foundation 2026. All Rights Reserved.
