@@ -56,14 +56,29 @@ const About = () => {
         <p className="text-muted-foreground max-w-xl mx-auto mb-12">
           Our Board of Trustees comprises distinguished leaders in healthcare, business, and philanthropy who provide strategic oversight and governance for the Foundation.
         </p>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto">
-          {trustees.map((t) => (
-            <div key={t.name} className="flex flex-col items-center">
-              <div className="w-24 h-24 rounded-2xl bg-navy mb-4" />
-              <p className="text-sm font-heading font-semibold">{t.name}</p>
-              <p className="text-xs text-muted-foreground">{t.role}</p>
-            </div>
-          ))}
+
+        <div className="rounded-2xl p-6 max-w-5xl mx-auto flex flex-col gap-6">
+          {/* Row 1 - 4 cards */}
+          <div className="flex flex-wrap justify-center gap-6">
+            {trustees.slice(0, 4).map((t) => (
+              <div key={t.name} className="flex flex-col items-center border border-border rounded-2xl p-6 bg-white w-[220px]">
+                <div className="w-24 h-24 rounded-xl bg-slate-200 mb-6" />
+                <p className="text-sm font-heading font-semibold text-center mb-1">{t.name}</p>
+                <p className="text-xs text-muted-foreground text-center">{t.role}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Row 2 - 3 cards */}
+          <div className="flex flex-wrap justify-center gap-6">
+            {trustees.slice(4).map((t) => (
+              <div key={t.name} className="flex flex-col items-center border border-border rounded-2xl p-6 bg-white w-[220px]">
+                <div className="w-24 h-24 rounded-xl bg-slate-200 mb-6" />
+                <p className="text-sm font-heading font-semibold text-center mb-1">{t.name}</p>
+                <p className="text-xs text-muted-foreground text-center">{t.role}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </div>

@@ -43,7 +43,7 @@ const Footer = () => {
           <div>
             <h4 className="font-heading font-semibold text-lg mb-4">Subscribe</h4>
             <p className="text-sm opacity-80 mb-4">Get updates on our latest programs and community impact stories.</p>
-            <div className="flex gap-2">
+            <div className="flex flex-col gap-2">
               <input
                 type="email"
                 placeholder="Enter your email"

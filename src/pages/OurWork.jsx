@@ -9,7 +9,7 @@ const statsGrid = [
 
 const pillars = [
   { title: "Health", desc: "Contributing and prioritizing the health and well-being of communities at large." },
-  { title: "Education", desc: "Prioritizing education and training initiatives that benefit our stakeholders and the broader community.", highlighted: true },
+  { title: "Education", desc: "Prioritizing education and training initiatives that benefit our stakeholders and the broader community." },
   { title: "Philanthropic Initiatives", desc: "Supporting charitable causes and organizations." },
   { title: "Community Engagement", desc: "Supporting and contributing to local communities." },
   { title: "Research & Development", desc: "Supporting activities around research and development." },
@@ -57,12 +57,11 @@ const OurWork = () => {
           {pillars.map((p) => (
             <div
               key={p.title}
-              className={`rounded-xl p-6 text-left border ${
-                p.highlighted ? "bg-primary text-primary-foreground border-primary" : "bg-background border-border"
-              }`}
+              className={`rounded-xl p-6 text-left border group transition-all hover:shadow-md hover:bg-primary hover:text-white hover:border-primary hover:cursor-pointer ${p.highlighted ? "bg-primary text-primary-foreground border-primary" : "bg-background border-border"
+                }`}
             >
               <h3 className="font-heading font-semibold text-lg mb-2">{p.title}</h3>
-              <p className={`text-sm ${p.highlighted ? "opacity-90" : "text-muted-foreground"}`}>{p.desc}</p>
+              <p className={`text-sm transition-colors group-hover:text-white/90 ${p.highlighted ? "opacity-90" : "text-muted-foreground"}`}>{p.desc}</p>
             </div>
           ))}
         </div>
@@ -74,13 +73,23 @@ const OurWork = () => {
           <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">Where Strategy Becomes Impact</h2>
           <p className="text-muted-foreground max-w-lg mx-auto mb-12">Three active programmes currently delivering measurable change — from laboratory training to scholarship funding and professional mentorship.</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {initiatives.map((i) => (
-              <div key={i.title} className={`rounded-xl bg-background p-8 text-left border-l-4 ${i.color}`}>
-                <span className="inline-block text-xs font-semibold bg-primary/10 text-primary px-3 py-1 rounded-full mb-3">{i.tag}</span>
-                <h3 className="font-heading font-bold text-xl mb-3">{i.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{i.desc}</p>
-              </div>
-            ))}
+            {initiatives.map((i) => {
+              const isPrimary = i.color === "border-primary";
+              const bgClass = isPrimary ? "bg-[#3D8C54]" : "bg-[#2557C3]";
+              const hoverBorderClass = isPrimary ? "hover:border-[#3D8C54]" : "hover:border-[#2557C3]";
+
+              return (
+                <div key={i.title} className={`rounded bg-white text-left border border-transparent flex flex-col overflow-hidden transition-colors ${hoverBorderClass}`}>
+                  <div className={`${bgClass} p-6`}>
+                    <span className="inline-block text-xs font-medium bg-white/20 text-white border border-white/30 px-3 py-1 rounded mb-4">{i.tag}</span>
+                    <h3 className="font-heading font-bold text-2xl text-white">{i.title}</h3>
+                  </div>
+                  <div className="p-6">
+                    <p className="text-sm text-muted-foreground leading-relaxed">{i.desc}</p>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
