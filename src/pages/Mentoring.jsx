@@ -1,5 +1,5 @@
 import SectionTag from "@/components/SectionTag";
-import mentoringImg from "@/assets/about-team.jpg";
+// import mentoringImg from "@/assets/about-team.jpg";
 
 const Mentoring = () => (
   <div>
@@ -24,7 +24,7 @@ const Mentoring = () => (
         </div>
       </div>
       <div className="rounded-lg overflow-hidden bg-muted aspect-[4/3]">
-        <img src={mentoringImg} alt="Mentorship in action" className="w-full h-full object-cover" />
+        {/* <img src={mentoringImg} alt="Mentorship in action" className="w-full h-full object-cover" /> */}
       </div>
     </section>
   </div>
