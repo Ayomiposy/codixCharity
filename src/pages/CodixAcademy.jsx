@@ -2,6 +2,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
 import SectionTag from "@/components/SectionTag";
 import Precious from "@/assets/Precious.jpg";
+import kasarachi from "@/assets/kasarachiTestimonial.jpg";
 import heroImage4 from "@/assets/heroImage4.jpg";
 import heroImage1 from "@/assets/heroImage1.png";
 import mentoringImage from "@/assets/MentoringImage.jpg";
@@ -30,12 +31,14 @@ const voices = [
     name: "Precious Akinyemi",
     role: "Graduate of Industrial Chemistry",
     uni: "Olabisi Onabanjo University",
+    img: Precious,
   },
   {
     text: "Taking the Biosensors and Nanotechnology course helped me see how biosensors and nanotechnology actually work in real products. Now at Codix Bio, I apply that analytical thinking to quality assurance every day.",
     name: "Kasarachi Moku",
     role: "Graduate of Industrial Chemistry",
     uni: "Olabisi Onabanjo University",
+    img: "KA",
   },
 ];
 
@@ -212,7 +215,7 @@ const CodixAcademy = () => {
           </button>
           <div className="flex gap-6 items-start">
             <img
-              src={Precious}
+              src={voice.img}
               alt={voice.name}
               className="w-40 h-48 rounded-lg object-cover shrink-0 hidden md:block"
               loading="lazy"

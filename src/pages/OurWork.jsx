@@ -57,7 +57,7 @@ const initiatives = [
   {
     tag: "Education",
     title: "Codix Academy",
-    img: heroImage2,
+    img: heroImage4,
     alt: "Scholarship winner",
     desc: "A healthcare capacity-building programme formalised through a Memorandum of Understanding with Olabisi Onabanjo University. The Academy trains undergraduate students in the fields of biosensors and nanotechnology — equipping them with hands-on, industry-relevant skills that directly serve Nigeria's evolving diagnostic sector. SIWES Industrial Placements with Codix Group are embedded in the programme, and select graduates have gone on to join the Codix team.",
     color: "border-primary",
@@ -65,7 +65,7 @@ const initiatives = [
   {
     tag: "Philanthropy",
     title: "Scholarship",
-    img: heroImage4,
+    img: heroImage2,
     alt: "Training session",
     desc: "The Foundation provides targeted scholarship support to help underserved students achieve their academic and career goals. Rooted in the belief that financial circumstance should not determine professional potential, the scheme identifies and invests in promising individuals — removing barriers to entry in specialised and competitive fields.",
     color: "border-accent",
