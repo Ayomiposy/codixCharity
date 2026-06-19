@@ -111,10 +111,7 @@ const Index = () => {
       `}</style>
       {/* Hero */}
       <section className="container py-16 mt-10 md:py-24 text-center">
-        <p className="text-sm text-primary font-medium mb-4">
-          Established 2026 • Lagos, Nigeria
-        </p>
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold leading-tight mb-6">
+        <h1 className="text-4xl pt-8 md:text-5xl lg:text-6xl font-heading font-bold leading-tight mb-6">
           <span className="text-primary">
             Transforming <br />{" "}
           </span>{" "}
@@ -310,10 +307,10 @@ const Index = () => {
       {/* CTA */}
       <section className="container py-20 text-center bg-green-200 my-20 rounded-lg">
         <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
-          Ready to join us
+          Stay Updated
         </h2>
         <p className="text-muted-foreground max-w-md mx-auto mb-8">
-          Stay updated Stay up to date on our programs, events, and more.
+          Stay up to date on our programs, events, and more{" "}
         </p>
         <div className="flex gap-3 justify-center max-w-md mx-auto">
           <input

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import logo from "@/assets/codixLogo.jpeg";
+import logo from "@/assets/codixLogo-nobg.png";
 
 const navLinks = [
   { label: "Home", to: "/" },
@@ -44,10 +44,10 @@ const Navbar = () => {
 
         <div className="hidden lg:block">
           <Link
-            to="/contact"
+            to="/scholarship"
             className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
           >
-            Apply Now
+            Apply for Scholarship
           </Link>
         </div>
 
@@ -76,11 +76,11 @@ const Navbar = () => {
           ))}
           <div className="px-6 pt-2">
             <Link
-              to="/contact"
+              to="/scholarship"
               onClick={() => setOpen(false)}
               className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-2 text-sm font-medium text-primary-foreground"
             >
-              Apply Now
+              Apply for Scholarship
             </Link>
           </div>
         </div>
