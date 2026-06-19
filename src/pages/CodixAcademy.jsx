@@ -243,4 +243,6 @@ const CodixAcademy = () => {
   );
 };
 
+// update
+
 export default CodixAcademy;
