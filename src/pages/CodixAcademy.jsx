@@ -38,7 +38,7 @@ const voices = [
     name: "Kasarachi Moku",
     role: "Graduate of Industrial Chemistry",
     uni: "Olabisi Onabanjo University",
-    img: "KA",
+    img: kasarachi,
   },
 ];
 
@@ -242,5 +242,7 @@ const CodixAcademy = () => {
     </div>
   );
 };
+
+// update
 
 export default CodixAcademy;
