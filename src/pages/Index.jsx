@@ -115,8 +115,8 @@ const Index = () => {
         </div>
       </section>
       <section className="container py-16 mt-10 md:py-24 text-center">
-        <div className="flex gap-6 mb-[80px]">
-          <div className="w-[50%] text-left">
+        <div className="flex lg:flex-row sm:flex-col gap-6 mb-[80px]">
+          <div className="lg:w-[50%] text-left">
             <h2 className="font-heading text-4xl font-bold mb-4">
               Creating Lasting Impact
             </h2>
@@ -143,7 +143,7 @@ const Index = () => {
               they are only just beginning.
             </p>
           </div>
-          <div className="w-[50%] p-5 mb-6">
+          <div className="lg:w-[50%] px-5 sm:h-70">
             <iframe
               src={`https://www.youtube.com/embed/${videoId}`}
               frameborder="0"
