@@ -1,5 +1,5 @@
 import SectionTag from "@/components/SectionTag";
-import aboutTeam from "@/assets/aboutHero.png";
+import aboutTeam from "@/assets/aboutHero.jpg";
 import sammy from "@/assets/Sammy.png";
 import kingsley from "@/assets/Kingsley.png";
 import mary from "@/assets/Mary.png";
@@ -7,6 +7,8 @@ import olumide from "@/assets/Olumide.png";
 import jide from "@/assets/Jide.png";
 import gbenga from "@/assets/Gbenga.png";
 import dotun from "@/assets/Dotun.png";
+import AboutHero from "../assets/AboutHero.jpg";
+import { pillars } from "@/lib/pillars";
 
 const trustees = [
   {
@@ -56,22 +58,32 @@ const trustees = [
 const About = () => {
   return (
     <div>
-      <section className="container py-16 md:py-24 text-center">
-        <SectionTag variant="dark">About the Foundation</SectionTag>
-        <h1 className="text-4xl md:text-5xl font-heading font-bold mt-4">
-          About Codix Charity Foundation
-        </h1>
+      <section
+        className="  text-center h-screen"
+        style={{
+          backgroundImage: `url(${AboutHero})`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          marginBottom: "80px",
+        }}
+      >
+        <div className="bg-black opacity-70 w-full h-full py-16 md:py-24 flex flex-col justify-center items-center text-white">
+          <SectionTag variant="dark">About the Foundation</SectionTag>
+          <h1 className="text-4xl md:text-5xl/17 font-heading font-bold mt-4">
+            About Codix Charity <br /> Foundation
+          </h1>
+        </div>
       </section>
 
       <section className="container pb-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start h-full">
           <img
             src={aboutTeam}
             alt="CCF Team"
-            className="rounded-lg w-full h-auto object-cover"
+            className="rounded-lg w-full h-full object-cover"
             loading="lazy"
             width={700}
-            height={600}
           />
           <div>
             <SectionTag>Our Work</SectionTag>
@@ -133,6 +145,32 @@ const About = () => {
                 solutions for underserved communities.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-secondary py-20 mt-40">
+        <div className="container text-center pt-5">
+          <SectionTag>Our Focus</SectionTag>
+          <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
+            The Pillars that Guide our Work
+          </h2>
+          <p className="text-muted-foreground max-w-xl mx-auto mb-12">
+            We channel resources into health, education, and research to create
+            measurable impact where it matters most.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+            {pillars.map((p) => (
+              <div
+                key={p.title}
+                className={`rounded-xl p-6 text-left hover:border- border transition-shadow hover:shadow-md hover:bg-primary hover:text-white hover:cursor-pointer`}
+              >
+                <h3 className="font-heading font-semibold text-lg mb-2">
+                  {p.title}
+                </h3>
+                <p className="text-sm hover:text-white">{p.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

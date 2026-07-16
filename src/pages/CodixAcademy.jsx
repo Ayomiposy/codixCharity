@@ -1,11 +1,18 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
 import SectionTag from "@/components/SectionTag";
-import Precious from "@/assets/Precious.jpg";
-import kasarachi from "@/assets/kasarachiTestimonial.jpg";
-import heroImage4 from "@/assets/heroImage4.jpg";
-import heroImage1 from "@/assets/heroImage1.png";
-import mentoringImage from "@/assets/MentoringImage.jpg";
+import colabImg1 from "../assets/colabImg1.jpg";
+import colabImg2 from "../assets/colabImg2.jpg";
+import colabImg3 from "../assets/colabImg3.jpg";
+import aboutHero from "../assets/aboutHero.jpg";
+import colabImg4 from "../assets/colabImg4.jpg";
+import colabImg5 from "../assets/colabImg5.jpg";
+import colabImg6 from "../assets/colabImg6.jpg";
+import colabImg7 from "../assets/colabImg7.jpg";
+import Precious from "../assets/Precious.jpg";
+import kasarachi from "../assets/kasarachiTestimonial.jpg";
+import heroImage4 from "../assets/heroImage4.jpg";
+import CodixAcademyHero from "../assets/codixAcademyHero.jpg";
 
 const timeline = [
   {
@@ -46,16 +53,42 @@ const CodixAcademy = () => {
   const [voiceIdx, setVoiceIdx] = useState(0);
   const voice = voices[voiceIdx];
 
+  const videoId = "1-8-nyBz028";
+
+  const OurColalborationImage = [
+    { src: colabImg1, alt: "Collaboration group meeting" },
+    { src: colabImg3, alt: "MLS meeting" },
+    { src: aboutHero, alt: "Council planning session" },
+    { src: colabImg2, alt: "Training group" },
+    { src: colabImg4, alt: "Classroom training" },
+    { src: colabImg5, alt: "Mentoring session" },
+    { src: colabImg6, alt: "Project presentation" },
+    { src: colabImg7, alt: "Participant discussion" },
+  ];
+
   return (
     <div>
-      <section className="container py-16 md:py-24 text-center">
-        <SectionTag variant="dark">Professional Training Programme</SectionTag>
-        <h1 className="text-4xl md:text-5xl font-heading font-bold mt-4">
-          Codix Academy
-        </h1>
+      <section
+        className=" text-center h-screen"
+        style={{
+          backgroundImage: `url(${CodixAcademyHero})`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          marginBottom: "80px",
+        }}
+      >
+        <div className="bg-black opacity-70 w-full h-full py-16 md:py-24 flex flex-col justify-center items-center text-white">
+          <SectionTag variant="dark">
+            Professional Training Programme
+          </SectionTag>
+          <h1 className="text-4xl md:text-5xl font-heading font-bold mt-4">
+            Codix Academy
+          </h1>
+        </div>
       </section>
 
-      <section className="bg-secondary py-20">
+      <section className=" py-20">
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <div>
@@ -65,23 +98,29 @@ const CodixAcademy = () => {
               </h2>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 Codix Academy, a cornerstone initiative of the Codix Charity
-                Foundation, is a dedicated effort to contribute to the
-                enhancement of the nation's health, with a primary focus on
-                strengthening the Nigerian healthcare delivery system. Our
-                commitment extends beyond patient care; it is about fostering
-                support and building capacity for healthcare professionals.
-                Recognizing the pivotal role of timely and effective diagnosis
-                in promoting individual health, Codix Academy endeavors to
-                empower stakeholders within the healthcare system with the
-                knowledge and resources necessary for accurate diagnosis and the
-                consistent delivery of test results to improve patient
-                management.
+                Foundation, is dedicated to advancing healthcare through
+                education, training and capacity building. As part of our
+                commitment to enhancing the nation's health, Codix Academy
+                focuses on strengthening the Nigerian healthcare delivery system
+                by equipping healthcare professionals, students and other key
+                stakeholders with the knowledge, skills and practical
+                competencies needed to improve healthcare outcomes.
+              </p>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Recognizing the pivotal role of timely and accurate diagnosis in
+                promoting individual health, Codix Academy delivers specialized
+                training programmes designed to enhance diagnostic proficiency,
+                promote best practices and support the consistent delivery of
+                quality test results for improved patient management. Our
+                commitment extends beyond patient care; it is about building the
+                capacity of the healthcare workforce and fostering continuous
+                professional development across the healthcare ecosystem
               </p>
             </div>
             <img
               src={heroImage4}
               alt="Academy lab session"
-              className="rounded-lg w-full h-80 object-cover"
+              className="rounded-lg w-full object-cover h-full"
               loading="lazy"
               width={800}
               height={600}
@@ -92,11 +131,13 @@ const CodixAcademy = () => {
 
       <section className="container py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          <img
-            src={heroImage1}
-            alt="Academy lab session"
-            className="w-full h-80"
-            loading="lazy"
+          <iframe
+            src={`https://youtube.com/embed/${videoId}`}
+            frameborder="0"
+            className="w-full h-full rounded-md"
+            title="Codix Transforming Education"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
           />
           <div>
             <SectionTag>The How</SectionTag>
@@ -104,22 +145,29 @@ const CodixAcademy = () => {
               Our Academic Partnership
             </h2>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              In line with this commitment, Codix has also formalized a
-              Memorandum of Understanding with Olabisi Onabanjo University to
-              develop courses in the fields of biosensors, and nanotechnology.
-              The core objective of this collaboration is to facilitate skill
-              development among undergraduate students, ensuring exposure to the
-              latest advancements in these specialized fields. Through hands-on
-              training, students acquire practical skills directly applicable to
-              the dynamic landscape of healthcare.
+              In line with this commitment, Codix has formalized a Memorandum of
+              Understanding with Olabisi Onabanjo University to develop courses
+              in the fields of biosensors and nanotechnology. The core objective
+              of this collaboration is to facilitate skill development among
+              undergraduate students, ensuring they are exposed to the latest
+              advancements in these specialized fields. Through hands-on
+              training and industry-relevant learning experiences, students
+              acquire practical skills directly applicable to the dynamic
+              landscape of healthcare.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="bg-secondary py-20">
+      <section className=" py-20">
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            <div>
+              <SectionTag>The Results</SectionTag>
+              <h2 className="text-3xl font-heading font-bold">
+                Student Impact &amp; Career Growth
+              </h2>
+            </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
               It also aims to enhance career opportunities for students by
               aligning curricula with industry needs. This strategic approach
@@ -133,68 +181,54 @@ const CodixAcademy = () => {
               the gap between graduation and employment in specialized
               healthcare fields.
             </p>
-            <div>
-              <SectionTag>The Results</SectionTag>
-              <h2 className="text-3xl font-heading font-bold">
-                Student Impact &amp; Career Growth
-              </h2>
-            </div>
           </div>
         </div>
       </section>
 
-      <section className="bg-navy py-20">
+      <section className="py-20 bg-[#0E3074] text-white">
         <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <p className="text-xs font-semibold tracking-widest uppercase text-[#3D8C54] mb-2">
-                THE RECORDS
-              </p>
-              <h2 className="text-4xl md:text-5xl font-heading font-bold text-white leading-tight">
-                Our Journey &amp;
-                <br />
-                Success
-              </h2>
-            </div>
-            <div>
-              <p className="text-sm text-white/90 mb-12 leading-relaxed">
-                Launched in 2024, the programme welcomed its first cohort that
-                same year and has since grown to its third cohort. As of October
-                2025, over 400 students have graduated, building a strong
-                pipeline of technically skilled young professionals prepared to
-                contribute meaningfully to modern diagnostics and healthcare
-                delivery in Nigeria.
-              </p>
-              <div className="space-y-0">
-                {timeline.map((t, index) => (
-                  <div key={t.year} className="flex gap-6">
-                    {/* Year */}
-                    <div className="w-[80px] shrink-0 text-right py-0.5">
-                      <span className="text-sm font-semibold text-white">
-                        {t.year}
-                      </span>
-                    </div>
-                    {/* Axis */}
-                    <div className="relative flex flex-col items-center">
-                      <div className="w-5 h-5 rounded-full bg-white border-[3px] border-[#3D8C54] z-10 shrink-0" />
-                      {index !== timeline.length - 1 && (
-                        <div className="w-[2px] bg-[#3D8C54] h-full absolute top-5" />
-                      )}
-                    </div>
-                    {/* Content */}
-                    <div
-                      className={`${index !== timeline.length - 1 ? "pb-10" : ""}`}
-                    >
-                      <h3 className="font-heading font-bold text-lg text-white mb-2">
-                        {t.title}
-                      </h3>
-                      <p className="text-sm text-white/80 leading-relaxed">
-                        {t.desc}
-                      </p>
-                    </div>
+          <div className="text-center mb-12">
+            <SectionTag variant="dark">Our Collaboration</SectionTag>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold mt-4">
+              Our Collaboration with MLSCN
+            </h2>
+            <p className="max-w-2xl mx-auto text-sm text-slate-300 mt-4">
+              Supporting professional certification and practical training
+              through meaningful engagement with the Medical Laboratory Science
+              Council of Nigeria.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {OurColalborationImage.length > 0 &&
+              OurColalborationImage.slice(0, 6).map((img, index) => (
+                <div
+                  key={index}
+                  className="rounded-3xl overflow-hidden border border-slate-700 shadow-xl shadow-slate-950/40"
+                >
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    className="w-full h-[268px] object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            <div className="col-span-3 flex justify-center gap-4">
+              {OurColalborationImage.length > 0 &&
+                OurColalborationImage.slice(6).map((img, index) => (
+                  <div
+                    key={index}
+                    className="rounded-3xl overflow-hidden border border-slate-700 shadow-xl shadow-slate-950/40 w-[30%]"
+                  >
+                    <img
+                      src={img.src}
+                      alt={img.alt}
+                      className="w-full h-[268px] object-cover"
+                      loading="lazy"
+                    />
                   </div>
                 ))}
-              </div>
             </div>
           </div>
         </div>
