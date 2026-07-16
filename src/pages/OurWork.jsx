@@ -2,6 +2,7 @@ import SectionTag from "@/components/SectionTag";
 import heroImage2 from "@/assets/heroImage2.jpg";
 import heroImage4 from "@/assets/heroImage3.jpg";
 import Mentoring from "@/assets/MentoringImage.jpg";
+import OurWorkHero from "../assets/OurWorkHero.jpg";
 
 const statsGrid = [
   {
@@ -83,17 +84,28 @@ const initiatives = [
 const OurWork = () => {
   return (
     <div>
-      <section className="container py-16 md:py-24 text-center">
-        <SectionTag variant="dark">Community Impact</SectionTag>
-        <h1 className="text-4xl md:text-5xl font-heading font-bold mt-4">
-          Our Work &amp; Initiatives
-        </h1>
+      <section
+        className="text-center h-screen"
+        style={{
+          backgroundImage: `url(${OurWorkHero})`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          marginBottom: "80px",
+        }}
+      >
+        <div className="bg-black opacity-70 w-full h-full py-16 md:py-24 flex flex-col justify-center items-center text-white">
+          <SectionTag variant="dark">Community Impact</SectionTag>
+          <h1 className="text-4xl md:text-5xl font-heading font-bold mt-4">
+            Our Work &amp; Initiatives
+          </h1>
+        </div>
       </section>
 
-      <section className="bg-secondary py-20">
+      <section className=" py-20">
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            <div>
+            <div className="">
               <SectionTag>Our Work</SectionTag>
               <h2 className="text-3xl font-heading font-bold mb-4">
                 Improving Lives and Strengthening Communities
@@ -105,7 +117,7 @@ const OurWork = () => {
                 across health, education, and long-term development.
               </p>
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 shadow-md">
               {statsGrid.map((s) => (
                 <div
                   key={s.label}

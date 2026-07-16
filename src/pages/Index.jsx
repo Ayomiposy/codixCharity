@@ -13,30 +13,8 @@ import {
 } from "@/components/ui/carousel";
 import AutoScroll from "embla-carousel-auto-scroll";
 import React, { useEffect, useState, useRef } from "react";
-
-const pillars = [
-  {
-    title: "Health",
-    desc: "Contributing and prioritizing the health and well-being of communities at large.",
-  },
-  {
-    title: "Education",
-    desc: "Prioritizing education and training initiatives that benefit our stakeholders and the broader community.",
-    highlighted: true,
-  },
-  {
-    title: "Philanthropic Initiatives",
-    desc: "Supporting charitable causes and organizations.",
-  },
-  {
-    title: "Community Engagement",
-    desc: "Supporting and contributing to local communities.",
-  },
-  {
-    title: "Research & Development",
-    desc: "Supporting activities around research and development.",
-  },
-];
+import HomeHero from "../assets/HomeHero.jpg";
+import { pillars } from "@/lib/pillars";
 
 const stats = [
   {
@@ -101,6 +79,8 @@ const Index = () => {
     return () => clearTimeout(timer);
   }, [emblaApi]);
 
+  const videoId = "VWOiLzDL4pc";
+
   return (
     <div>
       <style>{`
@@ -110,33 +90,69 @@ const Index = () => {
         }
       `}</style>
       {/* Hero */}
-      <section className="container py-16 mt-10 md:py-24 text-center">
-        <h1 className="text-4xl pt-8 md:text-5xl lg:text-6xl font-heading font-bold leading-tight mb-6">
-          <span className="text-primary">
-            Transforming <br />{" "}
-          </span>{" "}
-          People &amp; Communities
-        </h1>
-        <p className="max-w-xl mx-auto text-muted-foreground mb-8">
-          Codix Charity Foundation builds stronger healthcare systems and
-          empowers the next generation of professionals across Nigeria. We
-          invest in people, knowledge, and lasting change.
-        </p>
-        <div className="flex gap-4 justify-center mb-12">
-          <Link
-            to="/our-work"
-            className="inline-flex items-center justify-center rounded-lg bg-black px-6 py-3 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
-          >
-            Our Work
-          </Link>
-          <Link
-            to="/scholarship"
-            className="inline-flex items-center justify-center rounded-lg border border-foreground px-6 py-3 text-sm font-medium text-foreground hover:bg-secondary transition-colors"
-          >
-            Scholarship
-          </Link>
-        </div>
 
+      <section
+        style={{
+          backgroundImage: `url(${HomeHero})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+        className="h-screen"
+      >
+        <div className="bg-black opacity-70 text-white text-center p-6 h-full flex flex-col justify-center">
+          <h1 className="text-4xl pt-8 md:text-4xl lg:text-5xl font-heading font-bold leading-tight mb-6">
+            <span className="">
+              Transforming <br />{" "}
+            </span>{" "}
+            People &amp; Communities
+          </h1>
+          <p className="max-w-xl mx-auto  mb-8">
+            Codix Charity Foundation builds stronger healthcare systems and
+            empowers the next generation of professionals across Nigeria. We
+            invest in people, knowledge, and lasting change.
+          </p>
+        </div>
+      </section>
+      <section className="container py-16 mt-10 md:py-24 text-center">
+        <div className="flex gap-6 mb-[80px]">
+          <div className="w-[50%] text-left">
+            <h2 className="font-heading text-4xl font-bold mb-4">
+              Creating Lasting Impact
+            </h2>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              At Codix Charity Foundation, we believe that sustainable
+              development begins by investing in people. Beyond providing
+              support, we create opportunities that improve lives, nurture
+              future leaders, strengthen healthcare systems, and
+              iclassName="text-sm text-muted-foreground leading-relaxed"nspire
+              innovation.
+            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              As the social impact arm of Codix Pharma Ltd and the broader Codix
+              Group, we work with communities, educational institutions,
+              governments, and development partners to deliver initiatives that
+              create meaningful and lasting change. From opening doors for young
+              innovators to supporting healthier communities, every intervention
+              is driven by a simple belief: when people are empowered with
+              knowledge, opportunity, and access, they become catalysts for
+              transforming society.
+            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              The stories we help create are our greatest measure of impact—and
+              they are only just beginning.
+            </p>
+          </div>
+          <div className="w-[50%] p-5 mb-6">
+            <iframe
+              src={`https://www.youtube.com/embed/${videoId}`}
+              frameborder="0"
+              title="Youtube Video Player"
+              allow="acceleration; autoplay; clipboard-write; encrypted-media; gyroscope; pinture-in-picture"
+              className="w-full h-full rounded-md"
+            />
+          </div>
+        </div>
         {/* Image carousel */}
         <Carousel
           setApi={setEmblaApi}
@@ -305,7 +321,7 @@ const Index = () => {
       </section>
 
       {/* CTA */}
-      <section className="container py-20 text-center bg-green-200 my-20 rounded-lg">
+      {/* <section className="container py-20 text-center bg-green-200 my-20 rounded-lg">
         <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
           Stay Updated
         </h2>
@@ -326,7 +342,7 @@ const Index = () => {
           By clicking Get Started you're confirming that you agree with our
           Terms and Conditions.
         </p>
-      </section>
+      </section> */}
     </div>
   );
 };
