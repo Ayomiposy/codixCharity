@@ -26,20 +26,20 @@ A multi-page React + JavaScript marketing website for the **Codix Charity Founda
 
 ## Tech Stack
 
-| Tool | Purpose |
-|------|---------|
-| **[Vite 5](https://vitejs.dev/)** | Lightning-fast dev server & bundler |
-| **[React 18](https://react.dev/)** | UI library |
-| **JavaScript (JSX)** | Language (no TypeScript) |
-| **[React Router DOM 6](https://reactrouter.com/)** | Client-side routing |
-| **[Tailwind CSS 3](https://tailwindcss.com/)** | Utility-first styling |
-| **[tailwindcss-animate](https://github.com/jamiebuilds/tailwindcss-animate)** | Animation utilities |
-| **[Radix UI](https://www.radix-ui.com/)** | Accessible primitives (tooltip, toast) |
-| **[lucide-react](https://lucide.dev/)** | Icon library |
-| **[@tanstack/react-query](https://tanstack.com/query)** | Async state management |
-| **[sonner](https://sonner.emilkowal.ski/)** | Toast notifications |
-| **[Vitest](https://vitest.dev/)** | Unit testing |
-| **[ESLint](https://eslint.org/)** | Code linting |
+| Tool                                                                          | Purpose                                |
+| ----------------------------------------------------------------------------- | -------------------------------------- |
+| **[Vite 5](https://vitejs.dev/)**                                             | Lightning-fast dev server & bundler    |
+| **[React 18](https://react.dev/)**                                            | UI library                             |
+| **JavaScript (JSX)**                                                          | Language (no TypeScript)               |
+| **[React Router DOM 6](https://reactrouter.com/)**                            | Client-side routing                    |
+| **[Tailwind CSS 3](https://tailwindcss.com/)**                                | Utility-first styling                  |
+| **[tailwindcss-animate](https://github.com/jamiebuilds/tailwindcss-animate)** | Animation utilities                    |
+| **[Radix UI](https://www.radix-ui.com/)**                                     | Accessible primitives (tooltip, toast) |
+| **[lucide-react](https://lucide.dev/)**                                       | Icon library                           |
+| **[@tanstack/react-query](https://tanstack.com/query)**                       | Async state management                 |
+| **[sonner](https://sonner.emilkowal.ski/)**                                   | Toast notifications                    |
+| **[Vitest](https://vitest.dev/)**                                             | Unit testing                           |
+| **[ESLint](https://eslint.org/)**                                             | Code linting                           |
 
 ---
 
@@ -85,12 +85,12 @@ A multi-page React + JavaScript marketing website for the **Codix Charity Founda
 
 Install these before starting:
 
-| Requirement | Version | Download |
-|-------------|---------|----------|
-| **Node.js** | ≥ 18.x (LTS recommended) | https://nodejs.org/ |
-| **npm** | ≥ 9.x (bundled with Node) | — |
-| **Git** | latest | https://git-scm.com/ |
-| **VS Code** | latest | https://code.visualstudio.com/ |
+| Requirement | Version                   | Download                       |
+| ----------- | ------------------------- | ------------------------------ |
+| **Node.js** | ≥ 18.x (LTS recommended)  | https://nodejs.org/            |
+| **npm**     | ≥ 9.x (bundled with Node) | —                              |
+| **Git**     | latest                    | https://git-scm.com/           |
+| **VS Code** | latest                    | https://code.visualstudio.com/ |
 
 Verify installations:
 
@@ -157,15 +157,15 @@ Open it in your browser. The app supports **hot module replacement** — saved c
 
 ## Available Scripts
 
-| Command | What it does |
-|---------|--------------|
-| `npm run dev` | Start the Vite dev server with HMR |
-| `npm run build` | Build a production bundle into `dist/` |
-| `npm run build:dev` | Build in development mode (unminified) |
-| `npm run preview` | Preview the production build locally |
-| `npm run lint` | Run ESLint over the codebase |
-| `npm run test` | Run all Vitest tests once |
-| `npm run test:watch` | Run Vitest in watch mode |
+| Command              | What it does                           |
+| -------------------- | -------------------------------------- |
+| `npm run dev`        | Start the Vite dev server with HMR     |
+| `npm run build`      | Build a production bundle into `dist/` |
+| `npm run build:dev`  | Build in development mode (unminified) |
+| `npm run preview`    | Preview the production build locally   |
+| `npm run lint`       | Run ESLint over the codebase           |
+| `npm run test`       | Run all Vitest tests once              |
+| `npm run test:watch` | Run Vitest in watch mode               |
 
 ---
 
@@ -173,15 +173,15 @@ Open it in your browser. The app supports **hot module replacement** — saved c
 
 Install these for the best DX:
 
-| Extension | Why |
-|-----------|-----|
-| **ES7+ React/Redux/React-Native snippets** (`dsznajder.es7-react-js-snippets`) | JSX snippets |
-| **Tailwind CSS IntelliSense** (`bradlc.vscode-tailwindcss`) | Autocomplete & class previews |
-| **Prettier** (`esbenp.prettier-vscode`) | Code formatting |
-| **ESLint** (`dbaeumer.vscode-eslint`) | Inline lint warnings |
-| **Path Intellisense** (`christian-kohler.path-intellisense`) | Autocomplete file imports |
-| **Auto Rename Tag** (`formulahendry.auto-rename-tag`) | Sync JSX tag renames |
-| **GitLens** (`eamodio.gitlens`) | Git insights |
+| Extension                                                                      | Why                           |
+| ------------------------------------------------------------------------------ | ----------------------------- |
+| **ES7+ React/Redux/React-Native snippets** (`dsznajder.es7-react-js-snippets`) | JSX snippets                  |
+| **Tailwind CSS IntelliSense** (`bradlc.vscode-tailwindcss`)                    | Autocomplete & class previews |
+| **Prettier** (`esbenp.prettier-vscode`)                                        | Code formatting               |
+| **ESLint** (`dbaeumer.vscode-eslint`)                                          | Inline lint warnings          |
+| **Path Intellisense** (`christian-kohler.path-intellisense`)                   | Autocomplete file imports     |
+| **Auto Rename Tag** (`formulahendry.auto-rename-tag`)                          | Sync JSX tag renames          |
+| **GitLens** (`eamodio.gitlens`)                                                | Git insights                  |
 
 Install all from the VS Code Extensions tab (`Ctrl+Shift+X`).
 
@@ -197,6 +197,7 @@ import logo from "@/assets/logo.png";
 ```
 
 This is configured in:
+
 - `vite.config.js` — for the bundler
 - `jsconfig.json` — for VS Code IntelliSense
 
@@ -204,16 +205,16 @@ This is configured in:
 
 ## Pages & Routes
 
-| Route | Component | Description |
-|-------|-----------|-------------|
-| `/` | `Index.jsx` | Home — hero, pillars, impact, testimonials |
-| `/about` | `About.jsx` | Mission, vision, board of trustees |
-| `/our-work` | `OurWork.jsx` | Program initiatives |
-| `/codix-academy` | `CodixAcademy.jsx` | Academy program details + cohort voice |
-| `/scholarship` | `Scholarship.jsx` | **5-step application form** with progress indicator |
-| `/mentoring` | `Mentoring.jsx` | Mentorship programme overview |
-| `/contact` | `Contact.jsx` | Contact details + message form |
-| `*` | `NotFound.jsx` | 404 fallback |
+| Route            | Component          | Description                                         |
+| ---------------- | ------------------ | --------------------------------------------------- |
+| `/`              | `Index.jsx`        | Home — hero, pillars, impact, testimonials          |
+| `/about`         | `About.jsx`        | Mission, vision, board of trustees                  |
+| `/our-work`      | `OurWork.jsx`      | Program initiatives                                 |
+| `/codix-academy` | `CodixAcademy.jsx` | Academy program details + cohort voice              |
+| `/scholarship`   | `Scholarship.jsx`  | **5-step application form** with progress indicator |
+| `/mentoring`     | `Mentoring.jsx`    | Mentorship programme overview                       |
+| `/contact`       | `Contact.jsx`      | Contact details + message form                      |
+| `*`              | `NotFound.jsx`     | 404 fallback                                        |
 
 ---
 
@@ -223,12 +224,12 @@ All design tokens live in **`src/index.css`** as CSS variables (HSL format) and 
 
 ### Brand Tokens
 
-| Token | Value | Usage |
-|-------|-------|-------|
-| `--primary` | Brand green | CTAs, accents, links |
-| `--navy` | Deep navy | Footer background |
-| `--background` / `--foreground` | White / near-black | Surfaces & text |
-| `--muted` / `--muted-foreground` | Soft greys | Secondary text |
+| Token                            | Value              | Usage                |
+| -------------------------------- | ------------------ | -------------------- |
+| `--primary`                      | Brand green        | CTAs, accents, links |
+| `--navy`                         | Deep navy          | Footer background    |
+| `--background` / `--foreground`  | White / near-black | Surfaces & text      |
+| `--muted` / `--muted-foreground` | Soft greys         | Secondary text       |
 
 ### Typography
 
@@ -257,13 +258,13 @@ npm run preview
 
 The `dist/` folder is a fully static site — deploy it anywhere:
 
-| Platform | How |
-|----------|-----|
-| **Vercel** | Connect repo → auto-detects Vite |
-| **Netlify** | Drag-and-drop `dist/` or connect repo |
-| **GitHub Pages** | Push `dist/` to `gh-pages` branch |
+| Platform             | How                                                    |
+| -------------------- | ------------------------------------------------------ |
+| **Vercel**           | Connect repo → auto-detects Vite                       |
+| **Netlify**          | Drag-and-drop `dist/` or connect repo                  |
+| **GitHub Pages**     | Push `dist/` to `gh-pages` branch                      |
 | **Cloudflare Pages** | Connect repo, build cmd `npm run build`, output `dist` |
-| **Lovable** | Click **Publish** in the Lovable editor |
+| **Lovable**          | Click **Publish** in the Lovable editor                |
 
 For SPA routing to work on static hosts, configure a fallback to `index.html` (Netlify's `_redirects`, Vercel's defaults already handle it).
 
@@ -272,24 +273,29 @@ For SPA routing to work on static hosts, configure a fallback to `index.html` (N
 ## Troubleshooting
 
 **Port 8080 already in use**
+
 ```bash
 # Kill the process or change the port in vite.config.js
 ```
 
 **`npm install` fails with peer-dep errors**
+
 ```bash
 npm install --legacy-peer-deps
 ```
 
 **Tailwind classes not applying**
+
 - Ensure the file extension is included in `tailwind.config.js` `content` glob.
 - Restart the dev server after editing `tailwind.config.js`.
 
 **Path alias `@/` not resolving in VS Code**
+
 - Reload the window: `Ctrl+Shift+P` → **"Developer: Reload Window"**.
 - Confirm `jsconfig.json` exists at the project root.
 
 **Blank page after build**
+
 - Check the browser console for asset-path errors.
 - If hosting under a sub-path, set `base: "/sub-path/"` in `vite.config.js`.
 
@@ -298,3 +304,7 @@ npm install --legacy-peer-deps
 ## License
 
 © Codix Charity Foundation 2026. All Rights Reserved.
+
+## Created By
+
+Ayomiposi Joshua George

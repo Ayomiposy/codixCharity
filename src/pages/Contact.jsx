@@ -2,18 +2,25 @@ import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { Phone, Mail, MapPin } from "lucide-react";
 import SectionTag from "@/components/SectionTag";
+import contactHero from "../assets/contactHero.jpg";
 
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState(null);
-  const [form, setForm] = useState({ firstName: "", lastName: "", email: "", message: "" });
+  const [form, setForm] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    message: "",
+  });
 
   const update = (k) => (e) => setForm({ ...form, [k]: e.target.value });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!form.firstName.trim() || !form.email.trim() || !form.message.trim()) return;
+    if (!form.firstName.trim() || !form.email.trim() || !form.message.trim())
+      return;
 
     setSending(true);
     setError(null);
@@ -27,7 +34,7 @@ const Contact = () => {
           from_email: form.email,
           message: form.message,
         },
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
       );
       setSubmitted(true);
     } catch (err) {
@@ -40,14 +47,28 @@ const Contact = () => {
 
   return (
     <div>
-      <section className="container py-16 md:py-24 text-center">
-        <h1 className="text-4xl md:text-6xl font-heading font-bold">Contact Us</h1>
+      <section
+        className="text-center h-screen mb-20"
+        style={{
+          backgroundImage: `url(${contactHero})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        <div className="bg-black opacity-70 py-16 md:py-24 h-full w-full flex flex-col justify-center text-white">
+          <h1 className="text-4xl md:text-6xl font-heading font-bold">
+            Contact Us
+          </h1>
+        </div>
       </section>
 
       <section className="container pb-20 grid md:grid-cols-2 gap-12">
         <div>
           <SectionTag>Contact</SectionTag>
-          <h2 className="text-3xl md:text-4xl font-heading font-bold mb-8">Get in Touch</h2>
+          <h2 className="text-3xl md:text-4xl font-heading font-bold mb-8">
+            Get in Touch
+          </h2>
 
           <ul className="space-y-6">
             <li className="flex gap-4">
@@ -56,7 +77,9 @@ const Contact = () => {
               </div>
               <div>
                 <p className="font-heading font-semibold">Phone</p>
-                <p className="text-muted-foreground text-sm">+234 XXX XXXX</p>
+                <p className="text-muted-foreground text-sm">
+                  +234 916 999 5467
+                </p>
               </div>
             </li>
             <li className="flex gap-4">
@@ -65,7 +88,9 @@ const Contact = () => {
               </div>
               <div>
                 <p className="font-heading font-semibold">Email Address</p>
-                <p className="text-muted-foreground text-sm">codixcharityfoundation@gmail.com</p>
+                <p className="text-muted-foreground text-sm">
+                  info@codixcharityfoundation.org
+                </p>
               </div>
             </li>
             <li className="flex gap-4">
@@ -74,8 +99,9 @@ const Contact = () => {
               </div>
               <div>
                 <p className="font-heading font-semibold">Address</p>
-                <p className="text-sm">Codix Charity Foundation</p>
-                <p className="text-muted-foreground text-sm">c/o Codix Pharma Ltd, Lagos, Nigeria</p>
+                <p className="text-muted-foreground text-sm">
+                  207 Ikorodu Rd, Ilupeju, Lagos 102215, Lagos{" "}
+                </p>
               </div>
             </li>
           </ul>
@@ -84,16 +110,24 @@ const Contact = () => {
         <div className="rounded-xl border border-border p-8 shadow-sm">
           {submitted ? (
             <div className="text-center py-12">
-              <h3 className="text-2xl font-heading font-bold text-primary mb-2">Thank you!</h3>
-              <p className="text-muted-foreground">We'll get back to you shortly.</p>
+              <h3 className="text-2xl font-heading font-bold text-primary mb-2">
+                Thank you!
+              </h3>
+              <p className="text-muted-foreground">
+                We'll get back to you shortly.
+              </p>
             </div>
           ) : (
             <>
-              <h3 className="text-xl font-heading font-bold mb-6">Send us a message</h3>
+              <h3 className="text-xl font-heading font-bold mb-6">
+                Send us a message
+              </h3>
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium mb-1.5">First Name</label>
+                    <label className="block text-sm font-medium mb-1.5">
+                      First Name
+                    </label>
                     <input
                       type="text"
                       required
@@ -105,7 +139,9 @@ const Contact = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-1.5">Last Name</label>
+                    <label className="block text-sm font-medium mb-1.5">
+                      Last Name
+                    </label>
                     <input
                       type="text"
                       maxLength={100}
@@ -117,7 +153,9 @@ const Contact = () => {
                   </div>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-1.5">Email Address</label>
+                  <label className="block text-sm font-medium mb-1.5">
+                    Email Address
+                  </label>
                   <input
                     type="email"
                     required
@@ -129,7 +167,9 @@ const Contact = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-1.5">Message</label>
+                  <label className="block text-sm font-medium mb-1.5">
+                    Message
+                  </label>
                   <textarea
                     required
                     maxLength={1000}

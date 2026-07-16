@@ -1,12 +1,23 @@
 import SectionTag from "@/components/SectionTag";
 import mentoringImg from "@/assets/MentoringImage.jpg";
+import mentorHero from "../assets/mentorHero.jpg";
 
 const Mentoring = () => (
   <div>
-    <section className="container py-16 md:py-24 text-center">
-      <h1 className="text-4xl md:text-6xl font-heading font-bold">
-        CCF Mentorship Programme
-      </h1>
+    <section
+      className="text-center h-screen mb-20"
+      style={{
+        backgroundImage: `url(${mentorHero})`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+      }}
+    >
+      <div className="bg-black opacity-70 py-16 md:py-24 h-full w-full flex flex-col justify-center text-white">
+        <h1 className="text-4xl md:text-6xl font-heading font-bold">
+          CCF Mentorship Programme
+        </h1>
+      </div>
     </section>
 
     <section className="container pb-20 grid md:grid-cols-2 gap-12 items-start">
