@@ -53,7 +53,7 @@ const CodixAcademy = () => {
   const [voiceIdx, setVoiceIdx] = useState(0);
   const voice = voices[voiceIdx];
 
-  const videoId = "1-8-nyBz028";
+  const videoId = "VWOiLzDL4pc";
 
   const OurColalborationImage = [
     { src: colabImg1, alt: "Collaboration group meeting" },

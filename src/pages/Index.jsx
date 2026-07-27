@@ -79,7 +79,7 @@ const Index = () => {
     return () => clearTimeout(timer);
   }, [emblaApi]);
 
-  const videoId = "VWOiLzDL4pc";
+  const videoId = "1-8-nyBz028";
 
   return (
     <div>
