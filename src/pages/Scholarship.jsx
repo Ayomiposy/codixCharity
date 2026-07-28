@@ -59,6 +59,9 @@ const Scholarship = () => {
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
   const [sendError, setSendError] = useState(null);
+  const [resume, setResume] = useState(null);
+  const [resumeName, setResumeName] = useState("");
+  const [resumeError, setResumeError] = useState("");
 
   const {
     register,
@@ -86,6 +89,7 @@ const Scholarship = () => {
       matric: "",
       cgpa: "",
       fileName: "",
+      resume: null,
       financialNeed: "",
       appliedOther: "",
       personalStatement: "",
@@ -104,10 +108,10 @@ const Scholarship = () => {
       notRobot: false,
     },
     mode: "onTouched",
+    shouldUnregister: false,
   });
 
   const firstName = watch("firstName");
-  const fileName = watch("fileName");
 
   const next = async () => {
     const valid = await trigger(STEP_FIELDS[step]);
@@ -116,21 +120,49 @@ const Scholarship = () => {
 
   const prev = () => setStep((s) => Math.max(1, s - 1));
 
-  const handleFile = () => {};
+  const handleTranscriptUpload = (event) => {
+    const file = event.target.files?.[0];
+
+    if (!file) {
+      setResume(null);
+      setResumeName("");
+      setResumeError("Please upload your academic transcript.");
+      return;
+    }
+
+    if (
+      file.type !== "application/pdf" &&
+      !file.name.toLowerCase().endsWith(".pdf")
+    ) {
+      setResume(null);
+      setResumeName("");
+      setResumeError("Please upload a PDF document.");
+      return;
+    }
+
+    setResume(file);
+    setResumeName(file.name);
+    setResumeError("");
+  };
 
   const onSubmit = async (data) => {
     setSending(true);
     setSendError(null);
 
     try {
-      const resumeConvert = await convertToBase(data.resume);
+      if (!resume) {
+        setResumeError("Please upload your academic transcript.");
+        throw new Error(
+          "Please upload your academic transcript before submitting.",
+        );
+      }
+
+      const resumeConvert = await convertToBase(resume);
       const payload = {
         ...data,
-        fileName: data.resume?.name ?? data.fileName,
-        resumeBase64: resumeConvert,
-        resumeName: data.resume?.name ?? data.fileName,
+        resume: resumeConvert,
+        filename: resume.name,
       };
-      delete payload.resume;
 
       const response = await fetch("/api/email", {
         method: "POST",
@@ -140,7 +172,14 @@ const Scholarship = () => {
         body: JSON.stringify(payload),
       });
 
-      const result = await response.json();
+      const text = await response.text();
+      let result = {};
+
+      try {
+        result = text ? JSON.parse(text) : {};
+      } catch {
+        result = { success: false, message: text || "Submission failed" };
+      }
 
       if (!response.ok || !result.success) {
         throw new Error(result.message || "Submission failed");
@@ -430,22 +469,25 @@ const Scholarship = () => {
                       Upload most recent Academic Transcript*
                     </label>
                     <label
-                      className={`border-2 border-dashed rounded-md p-8 flex flex-col items-center justify-center text-center cursor-pointer transition-colors ${e("fileName") ? "border-red-400" : "border-border hover:border-primary"}`}
+                      className={`border-2 border-dashed rounded-md p-8 flex flex-col items-center justify-center text-center cursor-pointer transition-colors ${resumeError ? "border-red-400" : "border-border hover:border-primary"}`}
                     >
                       <Upload
                         className="text-muted-foreground mb-2"
                         size={24}
                       />
                       <span className="text-sm text-muted-foreground">
-                        {fileName || "Click to upload"}
+                        {resumeName || "Click to upload"}
                       </span>
                       <input
                         type="file"
-                        {...register("resume")}
+                        name="resume"
                         accept=".pdf"
+                        onChange={handleTranscriptUpload}
                       />
                     </label>
-                    <Err field="fileName" />
+                    {resumeError ? (
+                      <p className="text-xs text-red-500 mt-1">{resumeError}</p>
+                    ) : null}
                   </div>
                 </div>
               )}

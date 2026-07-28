@@ -13,7 +13,7 @@ const formatValue = (value) => {
 
 const buildEmailHtml = (formData) => {
   const rows = Object.entries(formData)
-    .filter(([key]) => key !== "resumeBase64" && key !== "resumeName")
+    .filter(([key]) => key !== "resume" && key !== "filename")
     .map(
       ([key, value]) =>
         `<li><strong>${key}:</strong> ${formatValue(value)}</li>`,
@@ -48,8 +48,8 @@ export default async function handler(req, res) {
     const formData = req.body ?? {};
     const { firstName, lastName } = formData;
 
-    const resumeBase64 = formData.resumeBase64;
-    const resumeName = formData.resumeName;
+    const resumeBase64 = formData.resume;
+    const resumeName = formData.filename;
 
     const attachments = [];
     if (resumeBase64 && resumeName) {
@@ -60,12 +60,13 @@ export default async function handler(req, res) {
       attachments.push({
         filename: resumeName,
         content: Buffer.from(base64Content, "base64"),
+        contentType: "application/pdf",
       });
     }
 
     await resend.emails.send({
       from: process.env.RESEND_FROM_EMAIL || "info@codixcharityfoundation.org",
-      to: process.env.RESEND_TO_EMAIL || "georgejoshuaayomiposi@gmail.com",
+      to: process.env.RESEND_TO_EMAIL || "info@codixcharityfoundation.org",
       subject:
         `Scholarship Form: ${firstName || "Applicant"} ${lastName || ""}`.trim(),
       html: buildEmailHtml(formData),
