@@ -5,6 +5,7 @@ import { scholarshipSchema, STEP_FIELDS } from "@/schemas/scholarshipSchema";
 import { Upload, Check } from "lucide-react";
 import SectionTag from "@/components/SectionTag";
 import { convertToBase } from "@/lib/convertBase";
+import { SEO } from '../components/SEO'
 
 const STEPS = [
   { id: 1, label: "Personal" },
@@ -190,7 +191,7 @@ const Scholarship = () => {
       console.error("Resend error:", err);
       setSendError(
         err.message ||
-          "Submission failed. Please try again or contact us directly.",
+        "Submission failed. Please try again or contact us directly.",
       );
     } finally {
       setSending(false);
@@ -209,6 +210,12 @@ const Scholarship = () => {
 
   return (
     <div>
+      <SEO
+        title="Codix Scholarship Programme - Full-Time Scholarship Application Form"
+        description="The Codix Scholarship Programme seeks to support brilliant but indigent students in tertiary institutions across Nigeria."
+        image="/codixLogo.jpeg"
+      />
+
       {/* ── Hero ── */}
       <section className="container py-16 md:py-20 text-center">
         <SectionTag variant="dark">Application Form</SectionTag>
@@ -249,13 +256,12 @@ const Scholarship = () => {
                   className="flex flex-col items-center gap-2 flex-1"
                 >
                   <div
-                    className={`h-8 w-8 rounded-full flex items-center justify-center text-xs font-semibold transition-all ${
-                      step > s.id
-                        ? "bg-primary text-primary-foreground"
-                        : step === s.id
-                          ? "bg-primary text-primary-foreground ring-4 ring-primary/20"
-                          : "bg-border text-muted-foreground"
-                    }`}
+                    className={`h-8 w-8 rounded-full flex items-center justify-center text-xs font-semibold transition-all ${step > s.id
+                      ? "bg-primary text-primary-foreground"
+                      : step === s.id
+                        ? "bg-primary text-primary-foreground ring-4 ring-primary/20"
+                        : "bg-border text-muted-foreground"
+                      }`}
                   >
                     {step > s.id ? <Check size={14} /> : s.id}
                   </div>

@@ -13,6 +13,7 @@ import Precious from "../assets/Precious.jpg";
 import kasarachi from "../assets/kasarachiTestimonial.jpg";
 import heroImage4 from "../assets/heroImage4.jpg";
 import CodixAcademyHero from "../assets/codixAcademyHero.jpg";
+import { SEO } from "@/components/SEO";
 
 const timeline = [
   {
@@ -68,6 +69,12 @@ const CodixAcademy = () => {
 
   return (
     <div>
+      <SEO
+        title=" Codix Academy - Professional Training Programme for Healthcare Professionals"
+        description="Codix Academy, a cornerstone initiative of the Codix Charity Foundation, is dedicated to advancing healthcare through education, training and capacity building."
+        image={CodixAcademyHero}
+      />
+
       <section
         className=" text-center h-screen"
         style={{

@@ -9,6 +9,7 @@ import gbenga from "@/assets/Gbenga.png";
 import dotun from "@/assets/Dotun.png";
 import AboutHero from "../assets/AboutHero.jpg";
 import { pillars } from "@/lib/pillars";
+import { SEO } from "@/components/SEO";
 
 const trustees = [
   {
@@ -58,6 +59,12 @@ const trustees = [
 const About = () => {
   return (
     <div>
+      <SEO
+        title="About Codix Charity Foundation | Healthcare, Education & Community Impact"
+        description="Discover how Codix Charity Foundation supports healthier, empowered communities through healthcare access, education, youth development and sustainable community initiatives."
+        image={AboutHero}
+      />
+
       <section
         className="  text-center h-screen"
         style={{
