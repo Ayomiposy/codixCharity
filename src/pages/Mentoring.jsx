@@ -1,9 +1,15 @@
 import SectionTag from "@/components/SectionTag";
 import mentoringImg from "@/assets/MentoringImage.jpg";
 import mentorHero from "../assets/mentorHero.jpg";
+import { SEO } from "@/components/SEO";
 
 const Mentoring = () => (
   <div>
+    <SEO
+      title="Codix Mentorship Programme - Guide and Support the Next Generation of Healthcare Professionals"
+      description="CCF Mentorship Programme pairs experienced professionals with scholarship recipients, interns, and NYSC participants to provide guidance, support, and career development."
+      image={mentorHero}
+    />
     <section
       className="text-center h-screen mb-20"
       style={{

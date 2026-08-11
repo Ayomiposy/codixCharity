@@ -3,6 +3,7 @@ import emailjs from "@emailjs/browser";
 import { Phone, Mail, MapPin } from "lucide-react";
 import SectionTag from "@/components/SectionTag";
 import contactHero from "../assets/contactHero.jpg";
+import { SEO } from '../components/SEO'
 
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -60,6 +61,12 @@ const Contact = () => {
 
   return (
     <div>
+      <SEO
+        title="Contact Us - Codix Charity Foundation | Get in Touch"
+        description="Reach out to Codix Charity Foundation through our contact form, email, or phone number. We'd love to hear from you."
+        image={contactHero}
+      />
+
       <section
         className="text-center h-screen mb-20"
         style={{

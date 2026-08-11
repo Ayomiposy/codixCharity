@@ -3,6 +3,7 @@ import heroImage2 from "@/assets/heroImage2.jpg";
 import heroImage4 from "@/assets/heroImage3.jpg";
 import Mentoring from "@/assets/MentoringImage.jpg";
 import OurWorkHero from "../assets/OurWorkHero.jpg";
+import { SEO } from "@/components/SEO";
 
 const statsGrid = [
   {
@@ -84,6 +85,12 @@ const initiatives = [
 const OurWork = () => {
   return (
     <div>
+      <SEO
+        title="Our Work & Initiatives - Codix Charity Foundation"
+        description="Codix Charity Foundation invests in people and communities through education, healthcare, and youth development initiatives across Nigeria."
+        image={OurWorkHero}
+      />
+
       <section
         className="text-center h-screen"
         style={{
@@ -144,11 +151,10 @@ const OurWork = () => {
           {pillars.map((p) => (
             <div
               key={p.title}
-              className={`rounded-xl p-6 text-left border group transition-all hover:shadow-md hover:bg-primary hover:text-white hover:border-primary hover:cursor-pointer ${
-                p.highlighted
-                  ? "bg-primary text-primary-foreground border-primary"
-                  : "bg-background border-border"
-              }`}
+              className={`rounded-xl p-6 text-left border group transition-all hover:shadow-md hover:bg-primary hover:text-white hover:border-primary hover:cursor-pointer ${p.highlighted
+                ? "bg-primary text-primary-foreground border-primary"
+                : "bg-background border-border"
+                }`}
             >
               <h3 className="font-heading font-semibold text-lg mb-2">
                 {p.title}

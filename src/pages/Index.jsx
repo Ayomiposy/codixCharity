@@ -14,6 +14,7 @@ import {
 import AutoScroll from "embla-carousel-auto-scroll";
 import React, { useEffect, useState, useRef } from "react";
 import HomeHero from "../assets/HomeHero.jpg";
+import { SEO } from "@/components/SEO";
 import { pillars } from "@/lib/pillars";
 
 const stats = [
@@ -83,6 +84,12 @@ const Index = () => {
 
   return (
     <div>
+      <SEO
+        title="Codix Charity Foundation - Healthcare, Education & Community Impact in Nigeria"
+        description="Codix Charity Foundation invests in people and communities through education, healthcare, and youth development initiatives across Nigeria."
+        image={HomeHero}
+      />
+
       <style>{`
         .continuous-marquee [data-embla-container],
         .continuous-marquee .flex {
