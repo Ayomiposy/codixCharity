@@ -12,7 +12,8 @@ import colabImg7 from "../assets/colabImg7.jpg";
 import Precious from "../assets/Precious.jpg";
 import kasarachi from "../assets/kasarachiTestimonial.jpg";
 import heroImage4 from "../assets/heroImage4.jpg";
-import CodixAcademyHero from "../assets/codixAcademyHero.jpg";
+import CodixAcademyHero from "../assets/codixAcademyHero.webp";
+import { ImageGalaryView } from "@/components/imageGalaryView";
 import { SEO } from "@/components/SEO";
 
 const timeline = [
@@ -76,7 +77,7 @@ const CodixAcademy = () => {
       />
 
       <section
-        className=" text-center h-screen"
+        className="relative flex justify-center items-center text-center min-h-[75vh] md:min-h-[100vh]"
         style={{
           backgroundImage: `url(${CodixAcademyHero})`,
           backgroundSize: "cover",
@@ -84,12 +85,14 @@ const CodixAcademy = () => {
           backgroundPosition: "center",
           marginBottom: "80px",
         }}
+        id="hero"
       >
-        <div className="bg-black opacity-70 w-full h-full py-16 md:py-24 flex flex-col justify-center items-center text-white">
-          <SectionTag variant="dark">
-            Professional Training Programme
-          </SectionTag>
-          <h1 className="text-4xl md:text-5xl font-heading font-bold mt-4">
+        <div className=" text-white text-center h-full flex flex-col justify-center">
+          <div className="bg-black absolute inset-0 opacity-35 z-10"></div>
+          <p className="bg-black w-fit relative z-20 mx-auto px-4 py-1 shadow-lg rounded-full text-white opacity-80 border border-white text-xs font-bold">
+            PROFESSIONAL TRAINING AND PROGRAMME
+          </p>
+          <h1 className="text-4xl md:text-5xl relative z-20 font-heading font-bold mt-4">
             Codix Academy
           </h1>
         </div>
@@ -206,38 +209,7 @@ const CodixAcademy = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {OurColalborationImage.length > 0 &&
-              OurColalborationImage.slice(0, 6).map((img, index) => (
-                <div
-                  key={index}
-                  className="rounded-3xl overflow-hidden border border-slate-700 shadow-xl shadow-slate-950/40"
-                >
-                  <img
-                    src={img.src}
-                    alt={img.alt}
-                    className="w-full h-[268px] object-cover"
-                    loading="lazy"
-                  />
-                </div>
-              ))}
-            <div className="col-span-3 flex justify-center gap-4">
-              {OurColalborationImage.length > 0 &&
-                OurColalborationImage.slice(6).map((img, index) => (
-                  <div
-                    key={index}
-                    className="rounded-3xl overflow-hidden border border-slate-700 shadow-xl shadow-slate-950/40 w-[30%]"
-                  >
-                    <img
-                      src={img.src}
-                      alt={img.alt}
-                      className="w-full h-[268px] object-cover"
-                      loading="lazy"
-                    />
-                  </div>
-                ))}
-            </div>
-          </div>
+          <ImageGalaryView images={OurColalborationImage} />
         </div>
       </section>
 

@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { Star } from "lucide-react";
 import SectionTag from "@/components/SectionTag";
-import accomplishments from "@/assets/accomplishmentImage.jpg";
 import imoleayoTestimonial from "@/assets/imoleayoTestimonial.jpg";
 import KasarachiTestimonial from "@/assets/kasarachiTestimonial.jpg";
 import preciousTestimonial from "@/assets/preciousTestimonial.jpg";
@@ -13,7 +12,7 @@ import {
 } from "@/components/ui/carousel";
 import AutoScroll from "embla-carousel-auto-scroll";
 import React, { useEffect, useState, useRef } from "react";
-import HomeHero from "../assets/HomeHero.jpg";
+import HomeHero from "../assets/HomeHero.webp";
 import { SEO } from "@/components/SEO";
 import { pillars } from "@/lib/pillars";
 
@@ -105,16 +104,17 @@ const Index = () => {
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
         }}
-        className="h-screen"
+        className="relative min-h-[75vh] md:min-h-[100vh] flex justify-center items-center"
       >
-        <div className="bg-black opacity-70 text-white text-center p-6 h-full flex flex-col justify-center">
-          <h1 className="text-4xl pt-8 md:text-4xl lg:text-5xl font-heading font-bold leading-tight mb-6">
+        <div className=" text-white text-center p-6 h-full flex flex-col justify-center">
+          <div className="bg-black absolute w-full h-full top-0 left-0 opacity-35 z-10"></div>
+          <h1 className="text-4xl pt-8 md:text-4xl lg:text-5xl font-heading font-bold leading-tight mb-6 relative z-20">
             <span className="">
               Transforming <br />{" "}
             </span>{" "}
             People &amp; Communities
           </h1>
-          <p className="max-w-xl mx-auto  mb-8">
+          <p className="max-w-xl mx-auto  mb-8 relative z-20">
             Codix Charity Foundation builds stronger healthcare systems and
             empowers the next generation of professionals across Nigeria. We
             invest in people, knowledge, and lasting change.
